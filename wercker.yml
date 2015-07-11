@@ -5,5 +5,14 @@ build:
   steps:
     - script: 
         name: Create RPMS
-        code: make
+        code: |
+          yum update -y
+          make
+deploy:
+  steps:
+    - script: 
+        name: Create RPMS
+        code: |
+          yum install -y sshpass
+          sshpass -p ${REPO_PASS} scp -r ${RPM_PATH}* ${REPO_USER}@${REPO_HOST}:${REPO_PATH}
 

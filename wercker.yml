@@ -11,9 +11,7 @@ build:
 deploy:
   steps:
     - script: 
-        name: Create RPMS
-        code: |
-          yum install -y sshpass
-          echo copying RPMS to ${RPM_PATH}* -- ${REPO_USER}:${REPO_PASS}@${REPO_HOST}:${REPO_PATH}
-          sshpass -p ${REPO_PASS} scp -r ${RPM_PATH}* ${REPO_USER}@${REPO_HOST}:${REPO_PATH}
+        name: Deploying RPMS
+        code: scp -r ${SCP_PARAMS}
+
 

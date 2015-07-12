@@ -1,4 +1,4 @@
-box: joegen/sipx-externals-builder:latest
+box: sipfoundrydev/sipx-docker-base-image:latest
 no-response-timeout: 10
 command-timeout: 120
 build:
@@ -10,6 +10,9 @@ build:
           make
 deploy:
   steps:
+    - sipfoundrydev/add-ssh-key:
+        keyname: STAGE_KEY
+        host: ${REPO_HOST}
     - script: 
         name: Deploying RPMS
         code: scp -r ${SCP_PARAMS}

@@ -17,6 +17,6 @@ deploy:
         name: Deploying RPMS
         code: |
           echo SCP_PARAMS=${SCP_PARAMS}
-          scp -r ${SCP_PARAMS}
+          scp -r -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${SCP_PARAMS}
 
 

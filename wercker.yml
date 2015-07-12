@@ -18,5 +18,6 @@ deploy:
         code: |
           echo SCP_PARAMS=${SCP_PARAMS}
           scp -r -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${SCP_PARAMS}
+          ssh ${CREATEREPO_PARAMS}
 
 

@@ -10,7 +10,7 @@ build:
           make
 deploy:
   steps:
-    - sipfoundrydev/add-ssh-key:
+    - add-ssh-key:
         keyname: STAGE_KEY
         host: ${REPO_HOST}
     - script: 

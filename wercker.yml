@@ -15,7 +15,8 @@ deploy:
         host: ${REPO_HOST}
     - script: 
         name: Deploying RPMS
-        echo SCP_PARAMS=${SCP_PARAMS}
-        code: scp -r ${SCP_PARAMS}
+        code: |
+          echo SCP_PARAMS=${SCP_PARAMS}
+          scp -r ${SCP_PARAMS}
 
 
